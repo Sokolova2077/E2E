@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  
+    <head>
+        <title>Predict images</title>
+    </head>
+  
+    <body>    
+        <input id="upload" type="file">   
+        <button id="buttonPred">Predict</button> 
+        <h1>Predictions</h1>  
+        <p><span id="prediction"></span></p> 
+        <img id="upload-image" src=""/> 
+    </body>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        let base64Image;
+        $("#upload").change(function() {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                let dataURL = reader.result;
+                $('#upload-image').attr("src", dataURL);
+                base64Image = dataURL.replace("data:image/png;base64,","");
+            }
+            reader.readAsDataURL($("#upload")[0].files[0]);
+            $("#prediction").text("");
+        });
+
+        $("#buttonPred").click(function(){
+            let message = {image: base64Image}
+            $.post("http://0.0.0.0:5000/predict", JSON.stringify(message), function(response){
+            $("#prediction").text("results: "+response.prediction[0]+" ( confidence : "+response.prediction[1]+")");
+                console.log(response);
+            });
+        });       
+    </script>
+</html>
