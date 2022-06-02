@@ -8,6 +8,8 @@ import base64
 # JFML
 import tensorflow as tf
 from tensorflow.keras.applications.resnet50 import ResNet50, decode_predictions
+from keras.applications.vgg16 import VGG16, decode_predictions
+
 # Flask fpr WS
 from flask import request
 from flask import jsonify
@@ -16,8 +18,12 @@ from flask import Flask
 app = Flask(__name__) 
 #makingmodel
 Shape = (224, 224, 3)
-def ml():
+def ml1():
     model = ResNet50(include_top=True, weights="imagenet", input_shape=Shape)
+    return model
+
+def ml2():
+    model = VGG16(include_top=True, weights="imagenet", input_shape=Shape)
     return model
 
 # decoding
