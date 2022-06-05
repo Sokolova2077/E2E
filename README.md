@@ -12,6 +12,12 @@ The VGG architecture is structured starting with five blocks of convolutional la
 
 
 ![image](https://user-images.githubusercontent.com/35465478/172067956-804c9b4a-7468-4d1e-908c-964eb9f7397e.png)
+
+### ResNet Architecture: 
+Residual Networks (ResNets) are deep convolutional networks where the basic idea is to skip blocks of convolutional layers by using shortcut connections to form blocks named residual blocks. These stacked residual blocks greatly improve training efficiency and largely resolve the degradation problem present in deep networks. In ResNet-50 architecture, the basic blocks follow two simple design rules: (i) for the same output feature map size, the layers have the same number of filters; and (ii) if the feature map size is halved, the number of filters is doubled. The downsampling is performed directly by convolutional layers that have a stride of 2 and batch normalization is performed right after each convolution and before ReLU activation.
+
+![image](https://user-images.githubusercontent.com/35465478/172068069-a95d3816-26ca-4af3-810e-63e8b03dbcbb.png)
+
 ## How to run on VM
 To run on your machine user needs to do several steps:
 
