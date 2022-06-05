@@ -38,10 +38,11 @@ def prepare(decoded):
     batch = np.expand_dims(image, axis=0)
     return batch
 
-model = ml()
+model16 = ml2()
+model50 = ml1()
   
-@app.route("/predicte", methods=["POST"])
-def predicte():
+@app.route("/predict50", methods=["POST"])
+def predict50():
     # get the data request and prepar for ml
     req = request.get_json(force=True)
     image = decode(req)
@@ -54,3 +55,20 @@ def predicte():
     print("[+] results {}".format(response))
     
     return jsonify(response) # JSON
+    
+@app.route("/predict16", methods=["POST"])
+def predict16():
+    # get the data request and prepar for ml
+    req = request.get_json(force=True)
+    image = decode(req)
+    batch = prepare(image)
+    
+    prediction = model.predict(batch)
+    top_label = [(i[1],str(i[2])) for i in decode_predictions(prediction)[0][0]]
+    # response 
+    response = {"prediction": top_label}
+    print("[+] results {}".format(response))
+    
+    return jsonify(response) # JSON
+if __name__ == '__main__':
+    app.run()

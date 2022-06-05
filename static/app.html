@@ -7,7 +7,8 @@
   
     <body>    
         <input id="upload" type="file">   
-        <button id="buttonPred">Predict</button> 
+        <button id="buttonPred50">PredictResNet50</button> 
+		<button id="buttonPred16">PredictVGG16</button> 
         <h1>Predictions</h1>  
         <p><span id="prediction"></span></p> 
         <img id="upload-image" src=""/> 
@@ -27,12 +28,20 @@
             $("#prediction").text("");
         });
 
-        $("#buttonPred").click(function(){
+        $("#buttonPred50").click(function(){
             let message = {image: base64Image}
-            $.post("http://0.0.0.0:5000/predict", JSON.stringify(message), function(response){
+            $.post("http://0.0.0.0:5000/predict50", JSON.stringify(message), function(response){
             $("#prediction").text("results: "+response.prediction[0]+" ( confidence : "+response.prediction[1]+")");
                 console.log(response);
             });
-        });       
+        });   
+		
+		$("#buttonPred16").click(function(){
+            let message = {image: base64Image}
+            $.post("http://0.0.0.0:5000/predict16", JSON.stringify(message), function(response){
+            $("#prediction").text("results: "+response.prediction[0]+" ( confidence : "+response.prediction[1]+")");
+                console.log(response);
+            });
+        });     
     </script>
 </html>
