@@ -1,5 +1,7 @@
 # E2E
 A training project for E2E
+## About app:
+You upload image (captcha (not)) and choose one of two model you want to use by click on a button
 ## Data
 You can use any png image your soul want
 ## Model
