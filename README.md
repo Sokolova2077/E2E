@@ -33,3 +33,20 @@ To run on your machine user needs to do several steps:
  4. Make git pull and download all folders from the github
  5. Make ***python app.py*** 
  6. then launch it: ***flask run --host=0.0.0.0***
+
+## Dockerfile
+There is a Dockerfile in the github, that allows you to make an alternative run of the app and also to save the image of the application to use on different devices.
+Dockerfile that will be downloaded, contains the commands needed to build the container and make a working copy of the application.
+
+## How to build container using docker
+Build the container:
+ From the directory you have Dockerfile
+    docker build .
+    
+Launch the container:
+
+    docker run --network host IMAGE[:TAG|@DIGEST]
+    
+ You can also get it to your dockerHub:
+
+    docker push dockerlogin/dockerfolder:v.X.X    
