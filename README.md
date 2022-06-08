@@ -1,9 +1,19 @@
 # E2E
 A training project for E2E
 ## About app:
-You upload image (captcha (not)) and choose one of two model you want to use by click on a button
+You upload image (captcha (not)) and choose one of two model you want to use by click on a button.
+
+So, what inside the app?
+
+- input button to upload the image
+- two button to activate a script with two models
+- text paragraph to display result
+- element to display uploaded image
 ## Data
-You can use any png image your soul want
+You can use any png image your soul want.
+
+Models trained on ImageNet
+ImageNet is an image database organized according to the WordNet hierarchy (currently only the nouns), in which each node of the hierarchy is depicted by hundreds and thousands of images. The project has been instrumental in advancing computer vision and deep learning research. The data is available for free to researchers for non-commercial use.
 ## Model
 This has 2 model: Keras and VGG16.
 ### VGG Architecture: 
@@ -49,4 +59,6 @@ Launch the container:
     
  You can also get it to your dockerHub:
 
-    docker push dockerlogin/dockerfolder:v.X.X    
+    docker push dockerlogin/dockerfolder:v.X.X
+    
+FYI!! You will need to work with hashes to build with tensorflow. See more on https://stackoverflow.com/questions/60739006/tensorflow-hash-error-during-installation-pip
