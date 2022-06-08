@@ -62,3 +62,6 @@ Launch the container:
     docker push dockerlogin/dockerfolder:v.X.X
     
 FYI!! You will need to work with hashes to build with tensorflow. See more on https://stackoverflow.com/questions/60739006/tensorflow-hash-error-during-installation-pip
+
+
+![image](https://user-images.githubusercontent.com/35465478/172594987-5a35c0ea-0135-4a11-9db2-dffe2b45774e.png)
